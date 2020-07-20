@@ -1,0 +1,23 @@
+{
+  "name": "css-secrets",
+  "version": "1.0.0",
+  "description": "《CSS 精通》笔记 + 全部案例",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zg-zhang/CSS-Secrets.git"
+  },
+  "author": "zeguo-zhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zg-zhang/CSS-Secrets/issues"
+  },
+  "homepage": "https://github.com/zg-zhang/CSS-Secrets#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-connect": "^5.7.0"
+  }
+}
