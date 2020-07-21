@@ -1,18 +1,12 @@
-html, body {
-    max-height: 100vh;
-    max-width: 100vw;
-    font-size: 62.5%;
-    background-color: #F6ECE9;
-}
-
 .container {
     height: 90vh;
     width: 100vw;
-    margin: 5vh 0;
+    padding: 5vh 0;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    background-color: #F6ECE9;
 }
 
 .container img {
@@ -23,6 +17,7 @@ html, body {
 
 .container h1 {
     margin: 0;
+    font-weight: 600;
     font-size: 4.8rem;
 }
 
@@ -32,7 +27,7 @@ html, body {
     color: #6a8bad;
 }
 
-.container p {
+.container a {
     margin: 0;
     cursor: pointer;
     border-radius: 1rem;
@@ -42,7 +37,7 @@ html, body {
     background-color: #BA0170;
 }
 
-.container p:hover {
+.container a:hover {
     background: #D10879;
 }
 

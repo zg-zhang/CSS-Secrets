@@ -1,0 +1,62 @@
+html, body {
+    background-color: #6C5956;
+}
+
+.container {
+    width: 120rem;
+    margin: 0 auto;
+}
+
+/* h1 大标题 */
+h1 {
+    font-size: 4.8rem;
+    font-weight: 600;
+    letter-spacing: .5rem;
+    color: #FEC210;
+    margin: 7rem 1rem;
+}
+
+/* h2 章数 */
+h2 {
+    font-size: 3rem;
+    letter-spacing: .5rem;
+    color: #AAC932;
+    margin-top: 5rem;
+}
+
+/* h3 章标题 */
+h3 {
+    font-size: 3.2rem;
+    letter-spacing: .5rem;
+    color: #ffffff;
+    margin: 1rem 0 2rem;
+}
+
+/* div 行 */
+.container div {
+    padding: 1rem .5rem;
+}
+
+/* em 标题数 */
+em {
+    display: inline-block;
+    height: 3.2rem;
+    width: 3.2rem;
+    font-size: 2.4rem;
+    line-height: 1.5;
+    font-weight: 600;
+    border-radius: 50% 50% 0 50%;
+    margin-right: 2rem;
+    color: #6C5956;
+    background-color: #FEC210;
+}
+
+/* a 节标题 */
+a {
+    font-size: 2.4rem;
+    color: #ffffff;
+}
+
+a:hover {
+    color: #FEC210;
+}
