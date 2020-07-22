@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>目录</title>
-    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
     <link rel="stylesheet" href="../static/css/global.css">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="container">
         <h1>目录</h1>
+
+        <h2>第零章</h2>
+        <h3>样式 Demo 表</h3>
+            <div><em>X</em><a href="../demo">样式 Demo 表</a></div>
+
         <h2>第一章</h2>
         <h3>引言</h3>
             <div><em>0</em><a href="../one/css-coding-skills">CSS 编码技巧</a></div>
@@ -24,7 +28,7 @@
     <script>
         let ems = document.getElementsByTagName('em')
         for (let i = 0, length = ems.length; i < length; i++) {
-          if (Number(ems[i].textContent) < 10) {
+          if (ems[i].textContent.length === 1) {
             ems[i].style.paddingLeft = '1rem'
             ems[i].style.width = '2.2rem'
           }

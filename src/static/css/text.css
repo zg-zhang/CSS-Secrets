@@ -1,0 +1,87 @@
+/**
+   为了防止 全局样式的混乱，这里规定一个笔记界限为 text
+ */
+.text {
+    width: 100%;
+}
+
+/* text header 大标题盒子 */
+.text .header {
+    width: 120rem;
+    margin: 0 auto;
+    padding: 5rem 0 2rem;
+}
+
+/* text header number-box 大标题的数字背景 */
+.text .header .number-box {
+    float: left;
+    width: 16rem;
+    height: 8rem;
+    padding: 1.6rem;
+    border-radius: 4.8rem 4.8rem 0;
+    background-color: #E10285;
+}
+
+/* text header number 大标题的数字 */
+.text .header .number {
+    position: relative;
+    top: -3rem;
+    font-size: 12rem;
+    font-weight: 700;
+    font-family: Tahoma;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* text h1 大标题 */
+.text h1 {
+    float: left;
+    font-size: 3.6rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    margin: 6rem 0 0 5rem;
+    color: #E10285;
+}
+
+/* text h2 二级标题 */
+.text h2 {
+
+}
+
+/* text p 正文 */
+.text p {
+
+}
+
+/* text p b 正文加粗 */
+.text p b {
+
+}
+
+/* text code 代码盒子 */
+.text .code {
+    position: relative;
+    margin-top: 3rem;
+    width: 100%;
+    background-color: #F6ECE9;
+}
+
+/* text code tag 代码盒子的语言提示 */
+.text .code > .tag {
+    display: inline-block;
+    position: absolute;
+    left: 85%;
+    font-size: 2.4rem;
+    padding: .3em .5em;
+    border-radius: 0 0 .5em .5em;
+    color: #ffffff;
+    background-color: #DAC2BD;
+}
+
+/* text code 代码块 其中颜色的效果用 js 处理*/
+.text .code pre {
+    width: 120rem;
+    margin: auto;
+    font-size: 1.6rem;
+    white-space: pre;
+}

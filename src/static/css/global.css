@@ -1,21 +1,14 @@
+/* font awesome*/
+@import "font-awesome.min.css";
+
+/* 清除标签自带属性 */
 @import "normalize.css";
 
-html, body {
-    margin: 0;
-    padding: 0;
-    font-size: 62.5%;
-}
+/* 基础样式 */
+@import "base.css";
 
-h1,h2,h3,h4,h5,h6 {
-    margin: 0;
-    padding: 0;
-}
+/* 笔记 text 部分样式 */
+@import "text.css";
 
-a {
-    text-decoration: none;
-}
-
-/* header 详情页 header */
-.header {
-
-}
+/* 笔记中代码高亮样式 */
+@import "code.css";

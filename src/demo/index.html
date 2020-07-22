@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式 Demo 表</title>
+    <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+    <div class="text">
+
+        <div class="header clearfix">
+            <div class="number-box">
+                <div class="number">1</div>
+            </div>
+            <h1>样式Demo表</h1>
+        </div>
+
+        <div class="code">
+            <div class="tag">HTML</div>
+
+<pre><code class="language-html">
+&lt;div class="header clearfix"&gt;
+    &lt;div class="number-box"&gt;
+        &lt;div class="number"&gt;1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;h1&gt;样式Demo表&lt;/h1&gt;
+&lt;/div&gt;
+
+</code></pre>
+
+        </div>
+
+        <div class="code">
+            <div class="tag">CSS</div>
+
+<pre><code class="language-css">
+display: inline-block;
+position: absolute;
+left: 85%;
+font-size: 2.4rem;
+padding: .3em .5em;
+border-radius: 0 0 .5em .5em;
+color: #ffffff;
+background-color: #DAC2BD;
+
+</code></pre>
+
+        </div>
+
+        <div class="code">
+            <div class="tag">JS</div>
+
+<pre><code class="language-js">
+let num = document.getElementsByClassName('number')[0]
+let number = num.textContent
+
+if (number.length === 1) {
+  num.style.textIndent = '8rem';
+}
+
+</code></pre>
+
+        </div>
+
+    </div>
+
+    <script src="../static/js/prism.js"></script>
+    <script src="../static/js/global.js"></script>
+</body>
+</html>
