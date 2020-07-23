@@ -8,51 +8,174 @@
 </head>
 <body>
 
-    <div class="text">
-
-        <div class="header clearfix">
-            <div class="number-box">
-                <div class="number">1</div>
+    <div class="note">
+        <!-- header h1 -->
+        <div class="text">
+            <div class="container">
+                <div class="header clearfix">
+                    <div class="number-box">
+                        <div class="number">X</div>
+                    </div>
+                    <h1>样式Demo表</h1>
+                </div>
             </div>
-            <h1>样式Demo表</h1>
         </div>
 
         <div class="code">
-            <div class="tag">HTML</div>
-            <pre><code class="language-html">
+            <div class="container">
+                <div class="tag">HTML</div>
+                <pre><code class="language-html">
 &lt;div class="header clearfix"&gt;
     &lt;div class="number-box"&gt;
-        &lt;div class="number"&gt;1&lt;/div&gt;
+        &lt;div class="number"&gt;X&lt;/div&gt;
     &lt;/div&gt;
     &lt;h1&gt;样式Demo表&lt;/h1&gt;
 &lt;/div&gt;
             </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="warning">
+                <div class="container">
+                    注意：这里所有的 HTML 代码都必须放在 &lt;div class="note"&gt;&lt;/div&gt; 里面
+                </div>
+            </div>
         </div>
 
         <div class="code">
-            <div class="tag">CSS</div>
-            <pre><code class="language-css">
-display: inline-block;
-position: absolute;
-left: 85%;
-font-size: 2.4rem;
-padding: .3em .5em;
-border-radius: 0 0 .5em .5em;
-color: #ffffff;
-background-color: #DAC2BD;
-            </code></pre>
+            <div class="container">
+                <div class="tag">HTML</div>
+                <pre><code class="language-html">
+&lt;div class="text"&gt;
+    &lt;div class="warning"&gt;
+        &lt;div class="container"&gt;
+            注意：这里所有的 HTML 代码都必须放在 &lt;div class="note"&gt;&lt;/div&gt; 里面
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+            </div>
+        </div>
+
+        <!-- h2 -->
+        <div class="text">
+            <div class="container">
+                <h2>这是一个二级标题</h2>
+            </div>
         </div>
 
         <div class="code">
-            <div class="tag">JS</div>
-            <pre><code class="language-js">
-let num = document.getElementsByClassName('number')[0]
-let number = num.textContent
-
-if (number.length === 1) {
-  num.style.textIndent = '8rem';
-}
+            <div class="container">
+                <div class="tag">HTML</div>
+                <pre><code class="language-html">
+&lt;h2&gt;这是一个二级标题&lt;/h2&gt;
             </code></pre>
+            </div>
+        </div>
+
+        <!-- p b -->
+        <div class="text">
+            <div class="container">
+                <p>这是一段正文这是一段正文这是一段正文<b>这是一段正文</b>这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文</p>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <div class="tag">HTML</div>
+                <pre><code class="language-html">
+&lt;p&gt;这是一段正文这是一段正文这是一段正文&lt;b&gt;这是一段正文&lt;/b&gt;这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文这是一段正文&lt;/p&gt;
+            </code></pre>
+            </div>
+        </div>
+
+        <!-- note highlights 花絮 -->
+        <div class="highlights">
+            <div class="container">
+                <div class="header clearfix">
+                    <div class="text">小花絮</div>
+                    <h2>怪异的简写语法</h2>
+                </div>
+                <p>你可能已经注意到前面那个背景属性简写的例子了：<b>在 background 简写属性中指定 background-size 时</b>，需要同时提供一个 background-position 值（哪怕它的值就是其初始值也需要写出来），而且还要使 用一个斜杠（/）作为分隔。为什么有些简写的语法如此怪异？ </p>
+                <p>这通常都是为了消除歧义。在这个例子中，top right 显然是 background-position，而 2em 2em 是 background-size，不管它们的顺序如何。但是，请设想一下 50% 50% 这样的值，它到底是 backgroundsize 还是 background-position 呢？当你在使用展开式属性时，CSS 解析器明白你的意图；而当你使用 简写属性时，解析器需要在没有属性名提示的情况下弄清楚 50% 50% 到底指什么。这就是需要引入斜杠的 原因。</p>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <div class="tag">HTML</div>
+                <pre><code class="language-html">
+&lt;div class="highlights"&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="header clearfix"&gt;
+            &lt;div class="text"&gt;小花絮&lt;/div&gt;
+            &lt;h2&gt;怪异的简写语法&lt;/h2&gt;
+        &lt;/div&gt;
+        &lt;p&gt;你可能已经注意到前面那个背景属性简写的例子了：&lt;b&gt;在 background 简写属性中指定 background-size 时&lt;/b&gt;，需要同时提供一个 background-position 值（哪怕它的值就是其初始值也需要写出来），而且还要使 用一个斜杠（/）作为分隔。为什么有些简写的语法如此怪异？ &lt;/p&gt;
+        &lt;p&gt;这通常都是为了消除歧义。在这个例子中，top right 显然是 background-position，而 2em 2em 是 background-size，不管它们的顺序如何。但是，请设想一下 50% 50% 这样的值，它到底是 backgroundsize 还是 background-position 呢？当你在使用展开式属性时，CSS 解析器明白你的意图；而当你使用 简写属性时，解析器需要在没有属性名提示的情况下弄清楚 50% 50% 到底指什么。这就是需要引入斜杠的 原因。&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <ul>
+                    <li><p>CSS 的文件体积和复杂度可能会失控。即使是简洁明了的源代码，在经过编译之后也可能会变成一头从天而降的巨兽。</p></li>
+                    <li><p>调试难度会增加，因为你在开发工具中看到的 CSS 代码并不是你写的源代码。不过这个问题已经大大好转了，因为已经有越来越多的调试工具开始支持 SourceMap。SourceMap 是一种非常酷的新技术，正是为了解决这个痛点而生的，它会告诉浏览器哪些编译生成的CSS 代码对应哪些预处理器 CSS 代码，精确到行号。</p></li>
+                    <li><p>预处理器在开发过程中引入了一定程度的延时。尽管它们通常很快，但仍然需要差不多一秒钟的时间来把你的源代码编译成 CSS，而你不得不等待这段时间才能预览到代码的效果。</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <div class="tag">HTML</div>
+                <pre><code class="language-html">
+&lt;div class="text"&gt;
+    &lt;div class="container"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;p&gt;CSS 的文件体积和复杂度可能会失控。即使是简洁明了的源代码，在经过编译之后也可能会变成一头从天而降的巨兽。&lt;/p&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;p&gt;调试难度会增加，因为你在开发工具中看到的 CSS 代码并不是你写的源代码。不过这个问题已经大大好转了，因为已经有越来越多的调试工具开始支持 SourceMap。SourceMap 是一种非常酷的新技术，正是为了解决这个痛点而生的，它会告诉浏览器哪些编译生成的CSS 代码对应哪些预处理器 CSS 代码，精确到行号。&lt;/p&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;p&gt;预处理器在开发过程中引入了一定程度的延时。尽管它们通常很快，但仍然需要差不多一秒钟的时间来把你的源代码编译成 CSS，而你不得不等待这段时间才能预览到代码的效果。&lt;/p&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <div class="try-box clearfix">
+                    <div class="try-left"></div>
+                    <div class="try">
+                        <i class="fa fa-caret-right"></i>
+                        试一试
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <div class="tag">HTML</div>
+                <pre><code class="language-html">
+&lt;div class="text"&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="try-box clearfix"&gt;
+            &lt;div class="try-left"&gt;&lt;/div&gt;
+            &lt;div class="try"&gt;
+                &lt;i class="fa fa-caret-right"&gt;&lt;/i&gt;
+                试一试
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+            </div>
         </div>
 
     </div>

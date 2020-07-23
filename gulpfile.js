@@ -32,7 +32,8 @@ function server() {
 
 function watchFile() {
   watch(['src/**/*.html', "src/**/*.css", "src/**/*.js"]).on('change', function (path, stats) {
-    console.log(`监听文件变动：${path}`)
+    let date = new Date()
+    console.log(`${date.toLocaleTimeString()} | 监听文件变动：${path}`)
   })
   watch('src/**/*.html').on('change', html)
   watch('src/**/*.css').on('change', css)

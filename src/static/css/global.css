@@ -7,8 +7,8 @@
 /* 基础样式 */
 @import "base.css";
 
-/* 笔记 text 部分样式 */
-@import "text.css";
+/* 笔记 note 部分样式 */
+@import "note.css";
 
 /* 笔记中代码高亮样式 */
 @import "code.css";
