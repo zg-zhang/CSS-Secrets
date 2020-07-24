@@ -1,0 +1,103 @@
+/* 通过按钮来学习如何将代码关联起来 */
+.demo_1_box {
+    font-size: 36px;
+}
+
+.demo_0 {
+    padding: 6px 16px;
+    border: 1px solid #446d88;
+    background: #58a linear-gradient(#77a0bb, #58a);
+    border-radius: 4px;
+    box-shadow: 0 1px 5px gray;
+    color: white;
+    text-shadow: 0 -1px 1px #335166;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.demo_1 {
+    padding: 6px 16px;
+    border: 1px solid #446d88;
+    background: #58a linear-gradient(#77a0bb, #58a);
+    border-radius: 4px;
+    box-shadow: 0 1px 5px gray;
+    color: white;
+    text-shadow: 0 -1px 1px #335166;
+    font-size: 125%;
+    line-height: 1.5;
+}
+
+.demo_2 {
+    padding: .3em .8em;
+    border: 1px solid #446d88;
+    background: #58a linear-gradient(#77a0bb, #58a);
+    border-radius: .2em;
+    box-shadow: 0 .05em 2.5em gray;
+    color: white;
+    text-shadow: 0 -.05em .05em #335166;
+    font-size: 125%;
+    line-height: 1.5;
+}
+
+.demo_3_box {
+    font-size: 16px;
+}
+
+.demo_3 {
+    padding: .3em .8em;
+    border: 1px solid rgba(0,0,0,.1);
+    background: #58a linear-gradient(hsla(0,0%,100%,.2),transparent);
+    border-radius: .2em;
+    box-shadow: 0 .05em 2.5em rgba(0,0,0,.5);
+    color: white;
+    text-shadow: 0 -.05em .05em rgba(0,0,0,.5);
+    font-size: 125%;
+    line-height: 1.5;
+}
+
+.demo_3.cancel {
+    background-color: #c00;
+}
+.demo_3.ok {
+    background-color: #6b0;
+}
+
+/* inherit 提示自动继承背景和边框颜色 */
+.callout {
+    display: inline-block;
+    position: relative;
+    font-size: 1.8rem;
+    padding: .5em 1em;
+    border: 1px solid #6C5956;
+    background-color: #F6ECE9;
+}
+
+.callout::before {
+    content: "";
+    position: absolute;
+    top: -.4em;
+    left: 1em;
+    padding: .35em;
+    background-color: inherit;
+    border: inherit;
+    border-right: 0;
+    border-bottom: 0;
+    transform: rotate(45deg);
+}
+
+/* text_demo 相信你自己的眼睛 */
+.text_demo_0 {
+    display: inline-block;
+    font-size: 3.6rem;
+    padding: .5em;
+    color: #ffffff;
+    background-color: #6a8bad;
+}
+
+.text_demo_1 {
+    display: inline-block;
+    font-size: 3.6rem;
+    padding: .3em .7em .5em;
+    color: #ffffff;
+    background-color: #6a8bad;
+}

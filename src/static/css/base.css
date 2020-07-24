@@ -10,8 +10,21 @@ h1,h2,h3,h4,h5,h6 {
     padding: 0;
 }
 
+/* a 标签去除下划线 */
 a {
     text-decoration: none;
+}
+
+/* 去除 outline */
+:focus {
+    outline: none;
+}
+
+
+/* 统一规定宽度 */
+.container {
+    width: 120rem;
+    margin: 0 auto;
 }
 
 /* 去除浮动 clearfix */
@@ -21,3 +34,4 @@ a {
     display: block;
     clear: both;
 }
+
