@@ -69,7 +69,7 @@
     font-size: 1.8rem;
     padding: .5em 1em;
     border: 1px solid #6C5956;
-    background-color: #F6ECE9;
+    background-color: pink;
 }
 
 .callout::before {
