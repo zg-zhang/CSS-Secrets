@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>尽量减少代码重复</title>
+    <link rel="stylesheet" href="../../static/css/global.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="note">
+
+        <div class="text">
+            <div class="container">
+                <div class="header clearfix">
+                    <div class="number-box">
+                        <div class="number">Ⅰ</div>
+                    </div>
+                    <h1>尽量减少代码重复</h1>
+                </div>
+                <p>在实践中，代码可维护性的最大要素是尽量减少改动时要编辑的地方。</p>
+                <div class="try-box clearfix">
+                    <div class="try-left"></div>
+                    <div class="try">
+                        <i class="fa fa-caret-right"></i>
+                        试一试
+                    </div>
+                    <h3>通过按钮学习如何将代码如何关联起来</h3>
+                </div>
+                <p>假设我们这时要做一个可以缩放的按钮，如果我们按下面这么写，我们在缩放按钮时，需要在一堆规则中进行10行修改。</p>
+                <div class="demo">
+                    <input type="button" class="demo_0" value="Yes!">
+                </div>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <pre><code class="language-css">
+padding: 6px 16px;
+border: 1px solid #446d88;
+background: #58a linear-gradient(#77a0bb, #58a);
+border-radius: 4px;
+box-shadow: 0 1px 5px gray;
+color: white;
+text-shadow: 0 -1px 1px #335166;
+font-size: 20px;
+line-height: 30px;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <ul>
+                    <li><p>如果，我们决定改变字号（可能是为了生成一个更大、更重要的按钮），就得同时调整行高</p></li>
+                    <li><p>但是，这两个属性都写成了绝对值，更麻烦的是，行高并没有反映出它跟字号的关系</p></li>
+                    <li><p>所以，当某些值相互依赖时，应该把它们的相互关系用代码表达出来</p></li>
+                </ul>
+                <p>在这个例子中，行高是字号的1.5倍，所有我们把项目改成下面这样会更加容易维护。</p>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <pre><code class="language-css">
+font-size: 20px;
+line-height: 1.5;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <p>这里还是使用了 20px 这个绝对长度值。虽然绝对长度值更容易掌握，当时当我们决定把父级的字号加大时，我们就不得不修改每一处使用了绝对值作作为字体尺寸的样式。如果使用了百分比或者em单位就好多了。</p>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <pre><code class="language-css">
+font-size: 125%; /* 假设父级的字号是 16px */
+line-height: 1.5;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <p>现在我们改变父级的字号，按钮的尺寸就会随之发生变化，但是，看起来会很不协调。</p>
+                <div class="demo">
+                    <div class="demo_1_box">
+                        <input type="button" value="Yes!" class="demo_1">
+                    </div>
+                </div>
+                <p>因为所有其他效果都是为一个小按钮设计的，并没有跟着缩放，如果把这些长度都改成 em 单位，那这些效果的值都变成可以缩放的了，而且是依赖字号进行缩放的，按照这种方法，我们就可以在一处控制按钮的所有尺寸样式了</p>
+                <div class="demo">
+                    <div class="demo_1_box">
+                        <input type="button" value="Yes!" class="demo_2">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+               <pre><code class="language-css">
+padding: .3em .8em;
+border: 1px solid #446d88;
+background: #58a linear-gradient(#77a0bb, #58a);
+border-radius: .2em;
+box-shadow: 0 .05em 2.5em gray;
+color: white;
+text-shadow: 0 -.05em .05em #335166;
+font-size: 125%;
+line-height: 1.5;
+               </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <p>但是，可以发现，这里面还是有一些长度是绝对值的，<b>此时就需要重新审视到底哪些效果是应该跟着按钮一起放大，而哪些效果是保持不变的。</b></p>
+                <p>比如这个例子中，我们希望按钮的边框粗细保持在 1px，不受按钮尺寸的影响。</p>
+                <p>但是，让按钮变大或者变小并不是我们唯一想改动的地方，颜色是另一个重要的变数。如果我们想要创建一个绿色或者红色的按钮，我们需要做以下几点：</p>
+                <ul>
+                    <li><p>我们需要覆盖四条声明（border-color、background、box-shadow、text-shadow）</p></li>
+                    <li><p>要根据按钮的亮面和暗面相对于主色调变亮和变暗的程度来分别推导出其他颜色各自的亮色和暗色版本</p></li>
+                </ul>
+                <p>而且，若我们把这个按钮放在一个非白色的背景上呢？gray 做投影很显然只适用于纯白背景的情况。其实，我们只要把半透明的黑色或者白色叠加在主色调上，即可产生主色调的亮色和暗色变体。</p>
+                <div class="demo">
+                    <div class="demo_3_box">
+                        <input type="button" value="Yes!" class="demo_3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <pre><code class="language-css">
+padding: .3em .8em;
+border: 1px solid rgba(0,0,0,.1);
+background: #58a linear-gradient(hsla(0,0%,100%,.2),transparent);
+border-radius: .2em;
+box-shadow: 0 .05em 2.5em rgba(0,0,0,.5);
+color: white;
+text-shadow: 0 -.05em .05em rgba(0,0,0,.5);
+font-size: 125%;
+line-height: 1.5;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="highlights">
+            <div class="container">
+                <p>推荐使用 HLSA 而不是 RGBA 来产生半透明的白色，因为它的字符长度更短，敲起来也更快。这也归功于它的重复度更低。</p>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <p>现在我们只要覆盖 background-color 属性，就可以得到不同颜色版本的按钮了</p>
+                <div class="demo">
+                    <div class="demo_3_box">
+                        <input type="button" value="OK" class="demo_3 ok">
+                        <input type="button" value="Cancel" class="demo_3 cancel">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <pre><code class="language-css">
+.demo_3.cancel {
+    background-color: #c00;
+}
+
+.demo_3.ok {
+    background-color: #6b0;
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <p>现在按钮已经非常灵活了，但是这个例子并没有涵盖所有能让代码变得更 DRY 的方法，下面几节中会有更多的技巧</p>
+                <h2>1. 代码易维护 VS 代码量少</h2>
+                <p><b>代码易维护和代码量少不可兼得</b>，比如上面的例子中，最终采用的代码甚至比一开始的版本略长。</p>
+                <p>假设我们要为一个元素添加一道 10px 宽的边框，但左侧不加边框</p>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <pre><code class="language-css">
+border-width: 10px 10px 10px 0;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <p>这里看起来一条声明就解决了，但是如果日后要改动边框的宽度，你需要同时更改三个地方，如果把它拆成两条声明的话，改起来就容易多了，而且可读性或许更好一点</p>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <pre><code class="language-css">
+border-width: 10px;
+border-left-width: 0;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <h2>2. currentColor</h2>
+                <P>在CSS颜色（第三版）增加了很多颜色关键字，虽然其中很多都不常用，但是我们还得到了一个特殊的颜色关键字 currentColor，它是从 SVG 哪里借鉴来的 这个关键字并没有绑定到一个固定的颜色值，而是一直被解析为 color。实际上，这个特性让它成为了<b>CSS 中有史以来第一个变量</b> 虽然功能有限，但它真的是个变量。</P>
+                <p>假设，我们想让所有的水平分割线（所有 &lt;hr&gt; 元素）自动与文本的颜色保持一致，有了currentColor之后，我们只需要这样写：</p>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <pre><code class="language-css">
+hr {
+    height: .5em;
+    background: currentColor;
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <p>其实，也有很多的属性也具有类似的行为。举例来说，如果你没有给边框指定颜色，他就会自动从文本颜色那里得到颜色。这是因为 currentColor 本身就是很多CSS颜色属性的初始值，比如 border-color, outline-color, text-shadow, box-shadow 的颜色值</p>
+                <h2>3. 继承</h2>
+                <p>尽管绝大多数开发者都知道 inherit 这个关键字，但是大家还是很容易忘记它。</p>
+                <p>inherit 可以用在任何CSS属性中，而且他总是绑定到父元素的设计值（对伪元素来说，则会生成该伪元素的宿主元素）</p>
+                <p>举例来说，要把表单元素的字体设定为与页面的其他部分相同，并不需要重复指定字体属性，只需要利用 inherit 的特性即可</p>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <pre><code class="language-css">
+input. select. button { font: inherit; }
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <p>与此类似，要把超链接的颜色设定为与页面中其他文本相同，还是要用到 inherit</p>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <pre><code class="language-css">
+a { color: inherit; }
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <p>这个 inherit 关键字对于背景色同样非常有用。举个例子，在创建提示框的时候，你可能希望它的小箭头能够自动继承背景和边框的样式</p>
+                <div class="demo">
+                    <div class="callout">
+                        okokok
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <pre><code class="language-css">
+.callout {
+    display: inline-block;
+    position: relative;
+    font-size: 1.8rem;
+    padding: .5em 1em;
+    border: 1px solid #6C5956;
+    background-color: #F6ECE9;
+}
+
+.callout::before {
+    content: "";
+    position: absolute;
+    top: -.4em;
+    left: 1em;
+    padding: .35em;
+    background-color: inherit;
+    border: inherit;
+    border-right: 0;
+    border-bottom: 0;
+    transform: rotate(45deg);
+}
+                </code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../static/js/prism.js"></script>
+    <script src="../../static/js/global.js"></script>
+</body>
+</html>
