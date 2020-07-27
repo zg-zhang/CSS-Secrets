@@ -12,24 +12,32 @@
 
         <h2>第零章</h2>
         <h3>样式 Demo 表</h3>
-            <div><em>X</em><a href="../x/demo">样式 Demo 表</a></div>
+            <div><em>X</em><a href="../zero/demo">样式 Demo 表</a></div>
 
         <h2>第一章</h2>
-        <h3>引言</h3>
-            <div><em>0</em><a href="../zero/css-coding-skills">CSS 编码技巧</a></div>
+        <h3>CSS 编码技巧</h3>
+            <div><em>Ⅰ</em><a href="../one/less-code">尽量减少代码重复</a></div>
+            <div><em>Ⅱ</em><a href="../one/believe-eyes">相信你的眼睛，而不是数字</a></div>
+            <div><em>Ⅲ</em><a href="../one/responsive-web">响应式网页的设计</a></div>
+            <div><em>Ⅳ</em><a href="../one/css-coding-skills">CSS 编码技巧</a></div>
+            <div><em>Ⅴ</em><a href="../one/css-coding-skills">CSS 编码技巧</a></div>
 
         <h2>第二章</h2>
         <h3>背景与边框</h3>
-            <div><em>1</em><a href="../zero/css-coding-skills">CSS 编码技巧</a></div>
-            <div><em>2</em><a href="../zero/css-coding-skills">CSS 编码技巧</a></div>
-            <div><em>3</em><a href="../zero/css-coding-skills">CSS 编码技巧</a></div>
-            <div><em>13</em><a href="../zero/css-coding-skills">CSS 编码技巧</a></div>
+            <div><em>1</em><a href="../one/css-coding-skills">CSS 编码技巧</a></div>
+            <div><em>2</em><a href="../one/css-coding-skills">CSS 编码技巧</a></div>
+            <div><em>3</em><a href="../one/css-coding-skills">CSS 编码技巧</a></div>
+            <div><em>13</em><a href="../one/css-coding-skills">CSS 编码技巧</a></div>
     </div>
 
     <script>
         let ems = document.getElementsByTagName('em')
         for (let i = 0, length = ems.length; i < length; i++) {
-          if (ems[i].textContent.length === 1) {
+          if (!Number(ems[i].textContent)) {
+            ems[i].style.paddingLeft = '.7rem'
+            ems[i].style.paddingRight = '.3rem'
+            ems[i].style.width = '2.2rem'
+          } else if (ems[i].textContent.length === 1) {
             ems[i].style.paddingLeft = '1rem'
             ems[i].style.width = '2.2rem'
           }
