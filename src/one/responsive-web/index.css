@@ -1,0 +1,4 @@
+/* header 罗马数字修正 */
+.note .text .header .number {
+    left: -8rem;
+}
