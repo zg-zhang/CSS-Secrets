@@ -1,0 +1,21 @@
+/* header 罗马数字修正 */
+.note .text .header .number {
+    left: -3rem;
+}
+
+/* text_demo 相信你自己的眼睛 */
+.text_demo_0 {
+    display: inline-block;
+    font-size: 3.6rem;
+    padding: .5em;
+    color: #ffffff;
+    background-color: #6a8bad;
+}
+
+.text_demo_1 {
+    display: inline-block;
+    font-size: 3.6rem;
+    padding: .3em .7em .5em;
+    color: #ffffff;
+    background-color: #6a8bad;
+}
