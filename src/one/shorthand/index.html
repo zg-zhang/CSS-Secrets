@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相信你的眼睛，而不是数字</title>
+    <link rel="stylesheet" href="../../static/css/global.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="note">
+
+    <div class="text">
+        <div class="container">
+            <div class="header clearfix">
+                <div class="number-box">
+                    <div class="number">Ⅳ</div>
+                </div>
+                <h1>合理利用简写</h1>
+            </div>
+            <p>你可能知道，以下两行 CSS 代码并不是相等的</p>
+        </div>
+    </div>
+
+    <div class="code">
+        <div class="container">
+            <pre><code class="language-css">
+background: rebeccapurple;
+
+background-color: rebeccapurple;
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="text">
+        <div class="container">
+            <ul>
+                <li><p>前者是简写，它可以确保你得到 rebeccapurple 纯色背景</p></li>
+                <li><p>而后者使用了展开式的单个属性，那这个元素的背景最终有可能会显示为一个粉色的渐变图案、一张猫的图片或者其他任何东西，因为同时可能会有一条 background-image 声明在起作用</p></li>
+            </ul>
+            <p>在使用展开式属性的写法时，通常会遇到这样的问题：展开式写法并不会帮助你清空所有相关的其他属性，从而可能会干扰你想要达到的效果。</p>
+            <p>当然你也可以把所有展开式属性全部设置一遍，但是你可能会漏掉几个，或者 CSS 工作组可能在未来引入更多的展开式属性，那时你的代码就无法完全覆盖它们了。</p>
+        </div>
+        <div class="warning">
+            <div class="container">
+                不要害怕使用简写属性，合理使用简写是一种良好的防卫性编码方式，可以低于未来的风险
+            </div>
+        </div>
+        <div class="container">
+            <p>当然，如果我们要明确地去覆盖某个具体的展开式属性并保留其他相关样式，那就需要用展开式属性，就像我们在 <b>尽量减少代码重复</b> 这一节中为了得到按钮的其他颜色所做的那样。</p>
+        </div>
+    </div>
+
+    <div class="code">
+        <div class="container">
+            <pre><code class="language-css">
+background: url(tr.png) no-repeat top right / 2em 2em,
+            url(br.png) no-repeat bottom right / 2em 2em,
+            url(bl.png) no-repeat bottom left / 2em 2em;
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="highlights">
+        <div class="container">
+            <div class="header clearfix">
+                <div class="text">小花絮</div>
+                <h2>怪异的简写语法</h2>
+            </div>
+            <p>这里的background简写中，为什么要使用 斜杠 / 分隔 background-position 和 background-size 这两个属性呢？类似的怪异简写的原因是什么呢？</p>
+            <p>这通常都是用来消除歧义的，在这个例子中，top right 显然是 background-position 而 2em 2em 是background-size 不管它们的顺序如何，但是设想一下 50% 50% 这样的值，到底是background-position 还是 background-size呢？解析器需要在没有属性名提示的情况下弄清楚 50% 50% 到底指什么，这也是需要引入斜杆的原因。</p>
+        </div>
+    </div>
+
+    <div class="text">
+        <div class="container">
+            <p>这里 background-size 和 background-repeat 的值被重复了三遍，尽管每层背景的这两个值确实是相同的，其实我们可以从 CSS 的列表扩散那里得到好处。</p>
+        </div>
+        <div class="highlights">
+            <div class="container">
+                <P>列表扩散：如果只为某个属性提供一个值，那它就会扩散并应用到列表中的每一项</P>
+            </div>
+        </div>
+        <div class="container">
+            <p>我们可以把这些重复的值从简写属性中提取出来。这样，我们只需要修改一处，就可以改变所有的 background-size 和 background-repeat 了。</p>
+        </div>
+    </div>
+
+    <div class="code">
+        <div class="container">
+            <pre><code class="language-css">
+background: url(tr.png) top right,
+            url(br.png) bottom right,
+            url(bl.png) bottom left;
+background-size: 2em 2em;
+background-repeat: no-repeat;
+            </code></pre>
+        </div>
+    </div>
+</div>
+
+<script src="../../static/js/prism.js"></script>
+<script src="../../static/js/global.js"></script>
+</body>
+</html>
