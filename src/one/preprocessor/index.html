@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>应该使用预处理器嘛</title>
+    <link rel="stylesheet" href="../../static/css/global.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="note">
+
+    <div class="text">
+        <div class="container">
+            <div class="header clearfix">
+                <div class="number-box">
+                    <div class="number">Ⅴ</div>
+                </div>
+                <h1>应该使用预处理器嘛</h1>
+            </div>
+            <p>你可能听说过 Stylus、Sass、LESS 这些 CSS 预处理器，它们为 CSS 的编写提供了一些便利，比如变量、mixin、函数、规则嵌套、颜色处理等</p>
+        </div>
+        <div class="warning">
+            <div class="container">
+                如果使用得当，它们在大型项目中可以让代码更加灵活。
+            </div>
+        </div>
+        <div class="container">
+            <h3>不过，预处理器并不是完美无缺的</h3>
+            <ul>
+                <li><p><b>CSS 的文件体积和复杂度可能会失控，</b>即使是简洁明了的源代码，在经过编译之后也可能会变成一头从天而降的巨兽</p></li>
+                <li><p><b>调试难度会增加，</b>因为你在开发者工具中看到的CSS代码并不是你写的源代码，不过现在有越来越多的工具可以解决这个问题</p></li>
+                <li><p>预处理器在开发过程中引入了一定程度的<b>延时</b>。尽管它们很快，但还是仍然需要差不多一秒钟的时间来把你的代码编译成为CSS</p></li>
+                <li><p>每次抽象都必然带来更高的学习成本，每当有新人加入到我们的代码库中，这个问题都会重演。他要么已经对我们选择的这门预处理器“方言”很熟悉，要么得从头学。这意味着我们要么强制协作者接受我们的选择，要么花费额外的时间来培训，这两者都不是我们想看到的</p></li>
+                <li><p>别忘了还有抽象法则：所有重大的抽象机制在某种程度上都存在泄漏的情况。预处理器就和其他大型程序一样，有自己的bug，这些bug可能会潜伏很久，因为我们很少会怀疑预处理器的某个bug才是我们CSS出错的幕后元凶。</p></li>
+            </ul>
+            <p>除了上面这些问题外，最重要的问题是：网站开发者可能会不自觉的依赖和滥用预处理器，在某些时候，预处理器并不必要。</p>
+            <h3>很多受预处理器启发的特性都已经以各种方式融入到原生CSS中了</h3>
+        </div>
+        <div class="warning">
+            <div class="container">
+                原生特性通常比预处理器提供的版本要强大的多，因为他们是动态的。
+            </div>
+        </div>
+        <div class="container">
+            <p>举个例子，预处理器完全不知道如何完成 100% - 50px 这样的计算，因为在页面真正呗渲染之前，百分比值是无法解析的。但是，原生CSS 的 calc() 在计算这样的表达式时没有任何压力。</p>
+            <p>与此类似，下面这样的变量玩法在预处理器中是不可能做到的。</p>
+        </div>
+    </div>
+
+    <div class="code">
+        <div class="container">
+            <pre><code class="language-css">
+ul { --accent-color: purple; }
+ol { --accent-color: rebeccapurple; }
+li { background: var(--accent-color); }
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="text">
+        <div class="container">
+            <p>上面这段代码，有序列表中，列表项的背景色将是 rebeccapurple；但在无序列表中，列表项的背景色将是 purple；</p>
+            <p><b>总结出的建议是：在每个项目开始时使用纯 CSS，只有当代码开始变得无法保持 DRY 时，才切换到预处理器的方案。为了避免可能发生的依赖或滥用，在引入预处理器的问题上需要冷静决策，不应该在每个项目一开始就不动脑筋顺着惯性来。</b></p>
+        </div>
+    </div>
+</div>
+
+<script src="../../static/js/prism.js"></script>
+<script src="../../static/js/global.js"></script>
+</body>
+</html>
