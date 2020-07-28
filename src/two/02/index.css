@@ -1,0 +1,48 @@
+/* 多重边框 box-shadow 解决方案 */
+div[class*=demo-] {
+    font-size: 1.4rem;
+    height: 10rem;
+    width: 20rem;
+    padding: 1rem;
+    background-color: white;
+}
+
+.demo-01 {
+    box-shadow: 0 0 0 10px #6a8bad;
+}
+
+.demo-02 {
+    box-shadow: 0 0 0 10px #6a8bad, 0 0 0 15px deeppink;
+}
+
+.demo-03 {
+    box-shadow: 0 0 0 10px #6a8bad,
+                0 0 0 15px deeppink,
+                0 2px 10px 15px rgba(0,0,0,0.6);
+}
+
+.demo-04 {
+    box-shadow: 0 0 0 10px yellow inset,
+                0 0 0 15px mediumseagreen inset,
+                0 0 0 10px #6a8bad,
+                0 0 0 15px deeppink;
+}
+
+.demo-05 {
+    border: 10px solid #6a8bad;
+    outline: 5px solid deeppink;
+}
+
+.demo-06 {
+    border: 10px solid #ffffff;
+    border-radius: 25px;
+    outline: 1px dashed #ffffff;
+    outline-offset: -25px;
+    background-color: #6C5956!important;
+}
+
+.demo-07 {
+    border-radius: 25px;
+    outline: 5px solid #6C5956;
+    background-color: #AAC932!important;
+}

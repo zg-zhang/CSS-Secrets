@@ -135,7 +135,7 @@
 
 /* note text demo 案例 */
 .note .text .demo {
-    margin: 2rem 0;
+    padding: 2rem 0;
 }
 
 /* note text warning 注意警告 */
