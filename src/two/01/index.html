@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>半透明边框</title>
+    <link rel="stylesheet" href="../../static/css/global.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="note">
+        <div class="text">
+            <div class="container">
+                <div class="header clearfix">
+                    <div class="number-box">
+                        <div class="number">1</div>
+                    </div>
+                    <h1>半透明边框</h1>
+                </div>
+                <p>相信你一定尝试过 CSS 中的半透明颜色，比如 rgba() 和 hsla()</p>
+                <p>将半透明色设置为背景并不难，但是在其他属性（比如边框）中使用半透明颜色，并没有想象中简单。</p>
+                <div class="try-box clearfix">
+                    <div class="try-left"></div>
+                    <div class="try">
+                        <i class="fa fa-caret-right"></i>
+                        试一试
+                    </div>
+                    <h3>半透明边框</h3>
+                </div>
+                <p>假设你想给一个容器设置一层白色背景和一到半透明的白色边框，body的背景会从它的半透明边框上透上来，我们最开始的尝试可能如下：</p>
+                <div class="demo">
+                    <div class="body">
+                        <div class="demo01">
+                            很显然，边框并没有透明，而是变成了padding
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <pre><code class="language-css">
+border: 10px solid hsla(0, 0%, 100%, .5);
+background-color: #ffffff;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <h2>解决方案</h2>
+                <p>尽管肉眼看不见，但是边框是实在存在的。默认情况下，背景会延伸到边框所在区域的下层。这里我们可以看看这个用虚线边框的例子：</p>
+                <div class="demo">
+                    <div class="demo02"></div>
+                </div>
+                <p>即使我们使用了实色边框，背景依然会延伸到边框所在区域的下层。在最上面的例子中，我们设置的边框并没有失效，而是透出了容器自己的白色底色，这使得实际效果和纯白实色边框没有什么区别。</p>
+                <p>在CSS 2.1中，这就是背景的工作原理，我们只能接受它并向前看。但是，幸运的是，我们现在可以使用 background-clip 这个属性来进行调整。</p>
+            </div>
+        </div>
+
+        <div class="highlights">
+            <div class="container">
+                <div class="header clearfix">
+                    <div class="text">小花絮</div>
+                    <h2>background-clip</h2>
+                </div>
+                <p>用来指定绘图区的背景，一共有三个参数：</p>
+                <p>border-box: 背景被裁剪到边框盒</p>
+                <p>padding-box: 背景被裁剪到内边距框</p>
+                <p>content-box: 背景被裁剪到内容框</p>
+            </div>
+        </div>
+
+        <div class="text">
+            <div class="container">
+                <p>现在我们可以完美的得到一个半透明边框了</p>
+                <div class="demo">
+                    <div class="body">
+                        <div class="demo03">半透明边框出现了</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="code">
+            <div class="container">
+                <pre><code class="language-css">
+border: 1rem solid hsla(0, 0%, 100%, .5);
+background-clip: padding-box;
+background-color: #ffffff;
+                </code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../static/js/prism.js"></script>
+    <script src="../../static/js/global.js"></script>
+</body>
+</html>
