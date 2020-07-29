@@ -1,0 +1,38 @@
+div[class*=demo-] {
+    font-size: 1.4rem;
+    padding: 2.5rem;
+    height: 10em;
+    width: 20rem;
+    background-color: pink;
+}
+
+.demo-01 {
+    background: url("../../static/images/bg_demo.png") no-repeat right bottom / 10rem 10rem ;
+}
+
+.demo-02 {
+    background: url("../../static/images/bg_demo.png") no-repeat 90% 80% / 10rem 10rem ;
+}
+
+.demo-03 {
+    background: url("../../static/images/bg_demo.png") no-repeat right 20px bottom 10px / 10rem 10rem;
+}
+
+.demo-04 {
+    background: url("../../static/images/bg_demo.png") no-repeat bottom right / 10rem 10rem;
+    background-position: right 20px bottom 10px;
+}
+
+.demo-05 {
+    background: url("../../static/images/bg_demo.png") no-repeat right 25px bottom 25px / 10rem 10rem;
+}
+
+.demo-06 {
+    background: url("../../static/images/bg_demo.png") no-repeat right bottom / 10rem 10rem;
+    background-origin: content-box;
+}
+
+.demo-07 {
+    background: url("../../static/images/bg_demo.png") no-repeat right bottom / 10rem 10rem;
+    background-position: calc(100% - 20px) calc(100% - 10px);
+}
