@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>边框内圆角</title>
+    <link rel="stylesheet" href="../../static/css/global.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+<div class="note">
+    <div class="text">
+        <div class="container">
+            <div class="header clearfix">
+                <div class="number-box">
+                    <div class="number">4</div>
+                </div>
+                <h1>边框内圆角</h1>
+            </div>
+            <p>当我们使用 div 嵌套的时候，完成这个效果并没有什么难度。</p>
+            <div class="demo">
+                <div class="demo-01">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="code">
+        <div class="container">
+            <div class="tag">HTML</div>
+            <pre><code class="language-html">
+&lt;div class="demo-01"&gt;
+    &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;
+            </code></pre>
+        </div>
+    </div>
+    <div class="code">
+        <div class="container">
+            <pre><code class="language-css">
+.demo-01 {
+    height: 8rem;
+    width: 18rem;
+    padding: 1rem;
+    background-color: #6C5956;
+}
+
+.demo-01 div {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: #DAC2BD;
+}
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="text">
+        <div class="container">
+            <p>上面的方法很好，但是有没有什么办法可以只用一个元素就完成呢?</p>
+            <h2>解决方案</h2>
+            <p>其实上述的方法更灵活一些，因为它允许我们充分运用背景的能力，如果我们希望这一圈边框不是纯色，那也能很轻松的做到。</p>
+            <p>不过，如果只需要达成简单的实色效果，那我们就还有一条路可以走，只需用到一个元素，这个办法有一些 hack 的味道</p>
+        </div>
+    </div>
+
+    <div class="highlights">
+        <div class="container">
+            <div class="header clearfix">
+                <div class="text">小花絮</div>
+                <h2>hack 的味道？</h2>
+            </div>
+            <p>为什么说这个方法有带你 hack 的味道？</p>
+            <p>因为它依赖于描边不跟着圆角走的这个事实，但我们无法保证这种行为是永远不变的，当前规则在描边的绘制方面给了浏览器非常多的余地</p>
+        </div>
+    </div>
+
+    <div class="text">
+        <div class="container">
+            <div class="demo">
+                <div class="demo-02"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="code">
+        <div class="container">
+            <pre><code class="language-css">
+background-color: #DAC2BD;
+border-radius: 1rem;
+box-shadow: 0 0 0 .6rem #6C5956;
+outline: .6rem solid #6C5956;
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="text">
+        <div class="container">
+            <p>这受益于两个事实：描边并不会跟着元素的圆角走，但 box-shadow 会，因此我们将这两者叠加在一起，box-shadow 会将描边和圆角之间的空隙填满，这两种组合在一起完成了我们想要的效果</p>
+        </div>
+        <div class="warning">
+            <div class="container">
+                注意！这里引出了一个限制问题，因为我们需要使用 box-shadow 来填补 outline 和 圆角之间的空缺，根据勾股定理，如果描边的宽度比 (√2 − 1)r 小，那我们是不可能用这个方法达成该效果的。
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../static/js/prism.js"></script>
+<script src="../../static/js/global.js"></script>
+</body>
+</html>

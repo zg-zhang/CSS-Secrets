@@ -1,0 +1,25 @@
+/* 04 边框内圆角 */
+div[class*=demo-] {
+    height: 8rem;
+    width: 18rem;
+    padding: 1rem;
+}
+
+.demo-01 {
+    background-color: #6C5956;
+}
+
+.demo-01 div {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: #DAC2BD;
+}
+
+.demo-02 {
+    background-color: #DAC2BD;
+    border-radius: 1rem;
+    box-shadow: 0 0 0 .6rem #6C5956;
+    outline: .6rem solid #6C5956;
+}
+
